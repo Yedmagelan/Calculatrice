@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma Calculatrice pro</title>
+
+    <!-- Font Awesome Cdn  version 4-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+     <!-- Mon style bootsrap  -->
+     <link rel="stylesheet" href="style/bootstrap.min.css">
+
+</head>
+<body class="bg-light">
+    <div class="container pt-5">
+        <div class="row">
+            <div class="col-md-6 bg-white offset-lg-3 offset-md-3 p-4">
+
+                <div class="row border border-2 border-primary rounded-3 h-25 justify-content-between">
+                    <div class="col text-dark">
+                       <p id=" netoyer" class="mt-4 p-2 btn btn-outline-secondary border border-2 rounded-circle border-secondary">
+                        <i class="fa fa-retweet fs-4"></i>
+                       </p>
+                    </div>
+                    <div class="col h-100 w-100 text-end">
+                        <p class="text-seconadary text-muted fs-6" id="calcul"></p>
+                        <p class="text-dark fs-4 fw-bold" id="result"></p>
+                     </div>
+                </div>
+                <div class="row mt-2 fw-bold">
+                    <button class="col bg-info btn fw-bold fs-4 bouton" id="(">(</button>
+                    <button class="col bg-info ms-2 btn fw-bold fs-4 bouton" id=")">)</button>
+                    <button class="col bg-info ms-2 btn fw-bold fs-4 bouton" id="%">%</button>
+                    <button class="col bg-info ms-2 btn fw-bold fs-5 bouton" id="effacer">AC</button>
+                </div>
+                <div class="row mt-2">
+                    <button class="col bg-info btn fw-bold fs-4 bouton" id="7">7</button>
+                    <button class="col bg-info ms-2 btn fw-bold fs-4 bouton" id="8">8</button>
+                    <button class="col bg-info ms-2 btn fw-bold fs-4 bouton" id="9">9</button>
+                    <button class="col bg-info ms-2 btn fw-bold fs-3 bouton" id="/">÷</button>
+                </div>
+                <div class="row mt-2">
+                    <button class="col bg-info btn fw-bold fs-4 bouton" id="4">4</button>
+                    <button class="col bg-info ms-2 btn fw-bold fs-4 bouton" id="5">5</button>
+                    <button class="col bg-info ms-2 btn fw-bold fs-4 bouton" id="6">6</button>
+                    <button class="col bg-info ms-2 btn fw-bold fs-5 bouton" id="*">X</button>
+                </div>
+
+                <div class="row mt-2">
+                    <button class="col bg-info btn fw-bold fs-4 bouton" id="1">1</button>
+                    <button class="col bg-info ms-2 btn fw-bold fs-4 bouton" id="2">2</button>
+                    <button class="col bg-info ms-2 btn fw-bold fs-4 bouton" id="3">3</button>
+                    <button class="col bg-info ms-2 btn fw-bold fs-3 bouton" id="-">-</button>
+                </div>
+
+                <div class="row mt-2">
+                    <button class="col bg-info btn fw-bold fs-4 bouton" id="0">0</button>
+                    <button class="col bg-info ms-2 btn fw-bold fs-4 bouton" id=".">.</button>
+                    <button class="col bg-info ms-2 btn fw-bold fs-4 border-0 " id="egale">=</button>
+                    <button class="col bg-info ms-2 btn fw-bold fs-4 bouton" id="+">+</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+<!-- Ma partie script Js    -->
+<script>
+
+    const buttons = document.querySelectorAll(".bouton");
+    const result = document.getElementById("result");
+    let calcul = document.getElementById("calcul");
+    var netoyer = document.getElementById('netoyer');
+
+    buttons.forEach((button) => {
+
+    button.addEventListener("click", (e) => {
+        result.textContent += e.target.id;
+        calcul.textContent += e.target.id;
+    });
+
+    });
+    
+    
+    // Evenement pour calculer le resultat avec cliq sur egale
+    egale.addEventListener("click", () => {
+     result.textContent = eval(result.textContent);// fonction eval qui calcul tout peut importe
+     calcul.textContent+="="; 
+
+    });
+    
+    // effacer tout par clik sur AC 
+    effacer.addEventListener("click", () => {
+    result.textContent = "";
+    calcul.textContent = "";
+    });
+    
+    // // effacer tout par clik sur actualiser
+    // netoyer.addEventListener("click", () => {
+    // result.textContent = "";
+    // calcul.textContent = "";
+
+    // });
+
+    
+</script>
+
+</body>
+</html>
